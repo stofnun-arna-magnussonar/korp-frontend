@@ -1,8 +1,14 @@
 /** @format */
 const parseDateInterval = function (op, val, expanded_format) {
+  console.log("paseDateInterval")
+  console.log(op)
+  console.log(val)
+  console.log(expanded_format)
     let out
     val = _.invokeMap(val, "toString")
     if (!expanded_format) {
+        console.log("nei")
+
         return `$date_interval ${op} '${val.join(",")}'`
     }
 
@@ -107,7 +113,7 @@ const stringifyCqp = function (cqp_obj, expanded_format) {
 
                 if (type === "word" && val === "") {
                     out = ""
-                } else if (type === "date_interval") {
+                } else if (type === "_.date_interval" || type === "date_interval") {
                     out = parseDateInterval(op, val, expanded_format)
                 } else {
                     out = `${type} ${op} \"${val}\"`
@@ -116,6 +122,7 @@ const stringifyCqp = function (cqp_obj, expanded_format) {
                 if (out) {
                     or_array.push(out + flagstr)
                 }
+
             }
             if (!_.isEmpty(or_array)) {
                 outer_and_array.push(or_array)
