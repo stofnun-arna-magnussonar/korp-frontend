@@ -316,7 +316,8 @@ korpApp.factory("searches", [
                 timeProxy
                     .makeRequest()
                     .fail((error) => {
-                        console.error(error)
+                        def.resolve([[], []])
+                        //console.error(error)
                     })
                     .done(function (...args) {
                         let [dataByCorpus, all_timestruct, rest] = args[0]
