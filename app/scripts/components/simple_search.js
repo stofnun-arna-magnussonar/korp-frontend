@@ -14,26 +14,37 @@ export const simpleSearchComponent = {
                         is-raw-input="$ctrl.isRawInput"
                         type="lemgram"
                         disable-lemgram-autocomplete="$ctrl.disableLemgramAutocomplete"
-                        on-change="$ctrl.onChange(output, isRawOutput)"
-                    ></autoc>
+                        on-change="$ctrl.onChange(output, isRawOutput)">
+                    </autoc>
                     <search-submit
                         on-search="$ctrl.updateSearch()"
                         on-search-save="$ctrl.onSearchSave(name)"
                     ></search-submit>
                     <div class="opts">
-                        <input id="inOrderChk" type="checkbox" ng-model="$ctrl.inOrder" />
-                        <label for="inOrderChk"> {{'in_order_chk' | loc:$root.lang}}</label>
+                        <div class="">
+                            <input id="inOrderChk" type="checkbox" ng-model="$ctrl.inOrder" />
+                            <label for="inOrderChk"> {{'in_order_chk' | loc:$root.lang}}</label>
+                        </div>
                         <span> {{'and' | loc:$root.lang}} </span>
                         <span> {{'and_include' | loc:$root.lang}} </span>
-                        <input id="prefixChk" type="checkbox" ng-model="$ctrl.prefix" />
-                        <label for="prefixChk"> {{'prefix_chk' | loc:$root.lang}}</label>
-                        <input id="midChk" type="checkbox" ng-model="$ctrl.mid_comp" />
-                        <label for="midChk"> {{'compound_middle' | loc:$root.lang}} </label>
-                        <input id="suffixChk" type="checkbox" ng-model="$ctrl.suffix" />
-                        <label for="suffixChk"> {{'suffix_chk' | loc:$root.lang}} </label>
-                        <span> {{'and' | loc:$root.lang}} </span>
-                        <input id="caseChk" type="checkbox" ng-model="$ctrl.isCaseInsensitive" />
-                        <label for="caseChk"> {{'case_insensitive' | loc:$root.lang}} </label>
+
+                        <div class="ml-chckbx">
+                            <input id="prefixChk" type="checkbox" ng-model="$ctrl.prefix" />
+                            <label for="prefixChk"> {{'prefix_chk' | loc:$root.lang}} <i style="color:grey">{{$ctrl.currentSearchString}}</i></label>
+                        </div>
+                        <div class="ml-chckbx">
+                            <input id="midChk" type="checkbox" ng-model="$ctrl.mid_comp" />
+                            <label for="midChk"> {{'compound_middle' | loc:$root.lang}} <i style="color:grey">{{$ctrl.currentSearchString}}</i></label>
+                        </div>
+
+                        <div class="ml-chckbx">
+                            <input id="suffixChk" type="checkbox" ng-model="$ctrl.suffix" />
+                            <label for="suffixChk"> {{'suffix_chk' | loc:$root.lang}} <i style="color:grey">{{$ctrl.currentSearchString}}</i></label>
+                        </div>
+                        <div class="ml-chckbx">
+                            <input id="caseChk" type="checkbox" ng-model="$ctrl.isCaseInsensitive" />
+                            <label for="caseChk"> {{'case_insensitive' | loc:$root.lang}}</label>
+                        </div>
                     </div>
                 </form>
                 <div id="similar_wrapper" ng-show="$ctrl.relatedObj">
@@ -223,6 +234,7 @@ export const simpleSearchComponent = {
                         ctrl.input = search.val
                         ctrl.isRawInput = true
                         ctrl.currentText = search.val
+                        ctrl.currentSearchString = search.val
                     } else {
                         ctrl.input = unregescape(search.val)
                         ctrl.isRawInput = false
@@ -238,6 +250,7 @@ export const simpleSearchComponent = {
             })
 
             ctrl.onChange = (output, isRawOutput) => {
+                ctrl.currentSearchString = output
                 if (isRawOutput) {
                     ctrl.currentText = output
                     ctrl.lemgram = null
