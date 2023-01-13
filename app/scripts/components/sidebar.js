@@ -263,9 +263,7 @@ export const sidebarComponent = {
 
                     output.data("attrs", attrs)
                     if (value === "|" || value === "" || value === null) {
-                        output.append(
-                            `<i rel='localize[empty]' style='color : grey'>${util.getLocaleString("empty")}</i>`
-                        )
+                         output = ''
                         return output
                     }
 
