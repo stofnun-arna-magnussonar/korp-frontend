@@ -58,7 +58,7 @@ let deparam = require("jquery-deparam")
 window.c = console
 // __IS_LAB__ is defined in webpack and set to true if NODE_ENV is "staging"
 window.isLab = __IS_LAB__
-window.currentMode = deparam(window.location.search.slice(1)).mode || "default"
+window.currentMode = deparam(window.location.search.slice(1)).mode || "rmh2022"
 
 // tmhDynamicLocale = require("angular-dynamic-locale/src/tmhDynamicLocale")
 require("angular-dynamic-locale/dist/tmhDynamicLocale.js")

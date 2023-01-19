@@ -27,6 +27,7 @@ $primaryColor: rgb(221, 233, 255);
 $primaryLight: rgb(242, 247, 255);
 
 $color_yellow: #FFF3D8;
+$color_mim: #000080;
 
 html {
   background-color: white;
@@ -299,7 +300,8 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder, input:pla
   width: 100%;
 }
 
-#header {
+.mode-mim #header {
+
 }
 
 #content {
