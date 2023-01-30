@@ -6,7 +6,7 @@ div(ng-controller="SearchCtrl", click-cover="noCorporaSelected")
       div
         extended-standard(ng-if="!parallelMode")
         extended-parallel(ng-if="parallelMode")
-    uib-tab(heading='{{"advanced" | loc:lang}}', ng-if="visibleTabs[2]", 
+    uib-tab(heading='{{"advanced" | loc:lang}}', ng-if="visibleTabs[2]",
         advanced-search)
       #advanced
         .well.well-small
@@ -18,22 +18,22 @@ div(ng-controller="SearchCtrl", click-cover="noCorporaSelected")
           | {{'active_cqp_extended' | loc:lang}}:
 
           pre {{extendedCQP}}
-        
+
         .well.well-small
           | {{'cqp_query' | loc:lang}}:
           .pull-right
             i.fa.fa-file-o
-            a(href='http://cwb.sourceforge.net/files/CQP_Tutorial.pdf', target='_blank') 
+            a(href='http://cwb.sourceforge.net/files/CQP_Tutorial.pdf', target='_blank')
               | {{'cqp_docs' | loc:lang}}
           textarea#cqp_string(ng-model="cqp")
         search-submit(pos='right' on-search="onSearch()" on-search-save="onSearchSave(name)")
 
     uib-tab(ng-if="visibleTabs[3]", compare-search-ctrl)
       uib-tab-heading
-        | {{'compare' | loc:lang}} 
+        | {{'compare' | loc:lang}}
         span.badge(ng-if='savedSearches.length') {{savedSearches.length}}
       .search_compare()
-        button.btn.btn-sm.btn-danger.delete(ng-click='deleteCompares()', ng-show='savedSearches.length > 1') 
+        button.btn.btn-sm.btn-danger.delete(ng-click='deleteCompares()', ng-show='savedSearches.length > 1')
           i.fa.fa-trash-o
           | {{'compare_delete' | loc:lang}}
         div(ng-show='savedSearches.length < 2')
@@ -46,7 +46,7 @@ div(ng-controller="SearchCtrl", click-cover="noCorporaSelected")
           select(ng-options='search.label for search in savedSearches', ng-model='cmp2')
           | {{'compare_reduce' | loc:lang}}
 
-          select(ng-model='reduce', 
+          select(ng-model='reduce',
              ng-options='obj | \
              mapper:valfilter as obj.label | \
              locObj:lang group by obj.group | \
@@ -57,14 +57,14 @@ div(ng-controller="SearchCtrl", click-cover="noCorporaSelected")
           button.btn.btn-sm.btn-default.search(ng-click='sendCompare()') {{'compare_vb' | loc:lang}}
   #search_options.flex.items-baseline.bg-blue-100.border.border-blue-200.shadow-inner(click-cover="isCompareSelected")
     div
-      span.inline-block.mr-2(style='font-size: .9em;') KWIC: 
+      span.inline-block.mr-2(style='font-size: .9em;') {{'KWIC' | loc:lang}}: 
       select(ng-model='hitsPerPage' ng-options='getHppFormat(val) for val in hitsPerPageValues track by val')
       select(ng-model='kwicSort' ng-options='getSortFormat(val) for val in kwicSortValues track by val')
 
     div.flex.items-center(ng-show="showStats()")
-      span(rel='localize[statistics]') 
-      | : 
-      reduce-select.ml-2.relative.-top-px(reduce-items="statCurrentAttrs", reduce-selected="statSelectedAttrs", 
+      span(rel='localize[statistics]')
+      | :
+      reduce-select.ml-2.relative.-top-px(reduce-items="statCurrentAttrs", reduce-selected="statSelectedAttrs",
         reduce-insensitive="statInsensitiveAttrs" reduce-lang="lang", style='width: 200px')
     div(ng-show="settings.statistics !== false")
       input#show_stats(type="checkbox", ng-model="showStatistics", ng-disabled="inOrder")
