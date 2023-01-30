@@ -4,7 +4,11 @@ import { setDefaultConfigValues } from "./settings"
 
 const korpFailImg = require("../img/korp_fail.svg")
 const deparam = require("jquery-deparam")
-
+//Addition for Icelandic version
+const risamh_logo = require("../img/risamh_logo.svg")
+const mim_logo = require("../img/mim_logo.svg")
+const fornrit_logo = require("../img/fornrit_logo.svg")
+const otb_logo = require("../img/fornrit_logo.svg")
 import jStorage from "../lib/jstorage"
 
 window.authenticationProxy = new model.AuthenticationProxy()
@@ -229,6 +233,28 @@ Promise.all([loc_dfd, corpusSettingsPromise]).then(([locData, modeSettings]) => 
         // TODO: this does nothing?
         selected: settings["default_language"],
     })
+
+    const mainLogoFig = document.getElementById("main_logo").firstElementChild
+    	switch (currentMode) {
+    	    case "mim":
+    	        mainLogoFig.firstChild.src = mim_logo
+    	        break
+    	        // mainLogoFig.childNodes[1].setAttribute("rel", "localize[mim_logo]")
+    	    case "fornrit":
+    	        mainLogoFig.firstChild.src = fornrit_logo
+    	        break
+    	        // mainLogoFig.childNodes[1].setAttribute("rel", "localize[fornrit_logo]")
+    	    case "otb":
+    	        mainLogoFig.firstChild.src = otb_logo
+    	        break
+    	        // mainLogoFig.childNodes[1].setAttribute("rel", "localize[otb_logo]")
+    	    case "parallel":
+    	        mainLogoFig.firstChild.src = risamh_logo
+    	        break
+    	        // mainLogoFig.childNodes[1].setAttribute("rel", "localize[samhlida_logo]")
+    	    default:
+    	        mainLogoFig.firstChild.src = risamh_logo
+    	}
 
     setTimeout(() => window.onHashChange(null, true), 0)
     $("#main").animate({ opacity: 1 }, function () {
