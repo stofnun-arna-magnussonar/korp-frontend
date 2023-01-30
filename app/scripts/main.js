@@ -225,6 +225,7 @@ Promise.all([loc_dfd, corpusSettingsPromise]).then(([locData, modeSettings]) => 
 
     $("#languages").radioList({
         change() {
+
             const currentLang = $(this).radioList("getSelected").data("mode")
             locationSearch({
                 lang: currentLang !== settings["default_language"] ? currentLang : null,
@@ -255,6 +256,9 @@ Promise.all([loc_dfd, corpusSettingsPromise]).then(([locData, modeSettings]) => 
     	    default:
     	        mainLogoFig.firstChild.src = risamh_logo
     	}
+      const headerCorpusName = document.getElementById("header_corpus_name")
+      headerCorpusName.innerHTML= modeSettings.label[lang]
+
 
     setTimeout(() => window.onHashChange(null, true), 0)
     $("#main").animate({ opacity: 1 }, function () {
