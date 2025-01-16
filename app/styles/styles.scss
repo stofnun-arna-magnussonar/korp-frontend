@@ -1003,19 +1003,22 @@ h3 {
 }
 
 .modal-header {
-    display: block;
-    & > * {
-        display: inline-block;
-        width: 49%;
+  display : block;
+  & > * {
+    display: inline-block;
+    width : 49%;
+  }
+  .close-x {
+    text-align: right;
+    font-size : 2em;
+    cursor: pointer;
+    &:hover {
+      color : darkgrey;
     }
-    .close-x {
-        text-align: right;
-        font-size: 2em;
-        cursor: pointer;
-        &:hover {
-            color: darkgrey;
-        }
-    }
+  }
+    h1 {
+    font-size:36px;
+  }
 }
 
 .modal.fade.in {
