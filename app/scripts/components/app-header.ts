@@ -1,6 +1,11 @@
 import angular, { IController, IScope, ITimeoutService, ui } from "angular"
 import { remove } from "lodash"
 import korpLogo from "../../img/korp.svg"
+import _ from "lodash"
+import korpLogoEn from "../../img/korp.svg"
+import sbxLogo from "../../img/sprakbanken_text_slogan.svg"
+import sbxLogoEn from "../../img/sam_merki_texti.png"
+import guLogo from "../../img/clarin_is.png"
 import settings from "@/settings"
 import currentMode from "@/mode"
 import { addImgHash, html } from "@/util"
@@ -79,21 +84,15 @@ angular.module("korpApp").component("appHeader", {
                                 <a id="about" ng-click="$ctrl.citeClick()"> {{'about' | loc:$root.lang}} </a>
                             </li>
                             <li>
-                                <a href="https://spraakbanken.gu.se/verktyg/korp/användarhandledning" target="_blank">
+                                <a href="https://malheildir.arnastofnun.is/userguide/main.html" target="_blank">
                                     {{'docs' | loc:$root.lang}}
                                 </a>
                             </li>
                             <li id="korplink">
                                 <a href="/korp"> {{'korp' | loc:$root.lang}} </a>
                             </li>
-                            <li id="korplablink">
-                                <a href="/korplabb"> {{'korp_lab' | loc:$root.lang}} </a>
-                            </li>
-                            <li>
-                                <a href="https://spraakbanken.gu.se/sparv" target="_blank">
-                                    {{'import_chain' | loc:$root.lang}}
-                                </a>
-                            </li>
+                            
+                            
                         </ul>
                     </div>
                 </div>
