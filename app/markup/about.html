@@ -1,7 +1,6 @@
 <div class="modal-header">
     <h1>{{'about_corpora' | loc:lang}}</h1>
     <span ng-click="clickX()" class="close-x">×</span>
-
 </div>
 <div id="about_body" class="modal-body" >
   <p ng-bind-html="'about_intro' | loc:lang | trust"></p>
@@ -36,7 +35,7 @@
 
   <b ng-bind-html="'about_korp_header' | loc:lang | trust"></b>
   <p>
-      <span ng-bind-html="'about_body' | loc:lang | trust"></span>
+      <span ng-bind-html="'about_korp' | loc:lang | trust"></span>
       <a target='_blank' href='http://spraakbanken.gu.se'>
           <img style='max-width: 100px; vertical-align: middle' src='../img/korp.svg'>
       </a>
