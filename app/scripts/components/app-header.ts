@@ -1,10 +1,12 @@
 /** @format */
 import angular, { IController, IScope, ITimeoutService, ui } from "angular"
 import _ from "lodash"
-import korpLogo from "../../img/korp.svg"
+import korpLogo from "../../img/korp2.png"
+import mainLogo from "../../img/sam_clarin.png"
+import malheildarvefur from "../../img/malheildarvefur.png"
 import korpLogoEn from "../../img/korp.svg"
 import sbxLogo from "../../img/sprakbanken_text_slogan.svg"
-import sbxLogoEn from "../../img/sam_merki_texti.png"
+import sbxLogoEn from "../../img/ARN_myndmerki_graent.svg"
 import guLogo from "../../img/clarin_is.png"
 import settings from "@/settings"
 import currentMode from "@/mode"
@@ -95,8 +97,8 @@ angular.module("korpApp").component("appHeader", {
 
             <div class="flex justify-between items-end gap-3 my-3 px-3" id="header_left">
                 <a class="shrink-0 relative ml-4 pl-0.5" ng-click="$ctrl.logoClick()">
-                    <img ng-if="$root.lang == 'swe'" src="${korpLogo}" height="300" width="300" />
-                    <img ng-if="$root.lang != 'swe'" src="${korpLogoEn}" height="300" width="300" />
+                    <img ng-if="$root.lang == 'swe'" src="${mainLogo}" height="300" width="300" />
+                    <img ng-if="$root.lang != 'swe'" src="${mainLogo}" height="300" width="300" />
                 </a>
                 <div id="labs_logo">
                     <svg
@@ -125,15 +127,15 @@ angular.module("korpApp").component("appHeader", {
 
                 <a
                     class="hidden min-[1150px]:flex h-20 shrink flex-col justify-end"
-                    href="https://spraakbanken.gu.se/"
+                    ng-click="$ctrl.logoClick()"
                     target="_blank"
                 >
-                    <img ng-if="$root.lang == 'swe'" src="${sbxLogo}" />
-                    <img ng-if="$root.lang != 'swe'" src="${sbxLogoEn}" />
+                    <img ng-if="$root.lang == 'swe'" src="${malheildarvefur}" />
+                    <img ng-if="$root.lang != 'swe'" src="${malheildarvefur}" />
                 </a>
 
-                <a class="hidden xl:block shrink-0 h-32 -mt-2" href="https://gu.se/" target="_blank">
-                    <img src="${guLogo}" class="h-full" />
+                <a class="hidden xl:block shrink-0 h-32 -mt-2" href="https://spraakbanken.gu.se" target="_blank">
+                    <img src="${korpLogo}" class="h-full" />
                 </a>
             </div>
         </div>
