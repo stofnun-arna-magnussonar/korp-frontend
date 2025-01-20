@@ -213,7 +213,7 @@ angular.module("korpApp").component("sidebar", {
                         customContentStruct,
                     )
                 }
-                ;($element as JQueryExtended).localize()
+                ; ($element as JQueryExtended).localize()
                 $ctrl.applyEllipse()
             }
 
