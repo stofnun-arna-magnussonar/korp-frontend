@@ -293,7 +293,7 @@ angular.module("korpApp").component("sidebar", {
 
             $ctrl.renderItem = (type, key, value, attrs, wordData, sentenceData, tokens) => {
                 const output =
-                    attrs.label && !attrs["sidebar_hide_label"]
+                    attrs.label && !attrs["sidebar_hide_label"] && value!=null && value!=""
                         ? $(`<p><span>${locObj(attrs.label, $ctrl.lang)}</span>: </p>`)
                         : $("<p></p>")
 
