@@ -19,7 +19,10 @@
     "lang_SV": "Swedish",
     "lang_SK": "Slovak",
     "lang_ET": "Estonian",
-
+    "norm": "Modern spelling",
+    "norm2": "Normalized",
+    "orig": "Original",
+    "orig2": "Original spelling",
     "front_corpus_updates": "Corpus updates",
     "front_corpus_updated": "was updated",
     "example_queries": "Search examples",
