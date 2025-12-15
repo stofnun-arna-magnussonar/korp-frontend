@@ -1,0 +1,185 @@
+$primary-color: #aac8ff;
+$primary-light: #d9e7ff;
+$background-color: #edf3f3;
+
+$color-yellow: #fff3d8;
+$color-crown-of-thorns: #772122;
+$color-hover: #cd5c5c;
+$color-navy: #000080;
+$color-purple: #800080;
+$color-red: #f00;
+$color-darkgray: #333;
+$color-gray: #888;
+$color-white: #fff;
+$color-black: #000;
+
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+header {
+  padding: 20px;
+}
+
+body {
+  background-color: $background-color;
+  box-sizing: border-box;
+  counter-reset: h2counter;
+  font-family: 'Lato', Helvetica, Arial;
+  margin-left: 250px;
+}
+
+h1 {
+  counter-reset: h2counter;
+}
+
+h2::before {
+  content: counter(h2counter) '.\0000a0\0000a0';
+  counter-increment: h2counter;
+}
+
+h2 {
+  counter-reset: h3counter;
+}
+
+h3::before {
+  content: counter(h2counter) '.' counter(h3counter) '.\0000a0\0000a0';
+  counter-increment: h3counter;
+}
+
+.sidebar-left ol {
+  counter-reset: section;
+  list-style-type: none;
+  padding-left: 10px;
+}
+
+.sidebar-left li::before {
+  counter-increment: section;
+  content: counters(section, '.') ' ';
+}
+
+* {
+  box-sizing: border-box;
+}
+
+// h1 {
+//   background-color: $color-crown-of-thorns;
+//   border-radius: 5px;
+//   color: $color-white;
+// }
+.maincontent {
+  font-size: 20px;
+  margin: auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.mainsection {
+  border-top: 1px solid $color-black;
+  // border-radius: 5px;
+  display: block;
+  padding: 10px;
+
+  .fig {
+    background-color: $primary-light;
+    border: 1px solid $color-black;
+    border-radius: 5px;
+    margin: 0 0 16px;
+    // min-width: 500px;
+    padding: 0 10px;
+    text-align: center;
+    width: 50%;
+
+    &-right {
+      float: right;
+      margin-left: 10px;
+      width: calc(50% - 10px);
+    }
+
+    &-left {
+      float: left;
+      margin-right: 10px;
+      width: calc(50% - 10px);
+    }
+
+    &-big {
+      // margin: 0 auto 10px;
+      width: 100%;
+    }
+
+    &-small {
+      min-width: 250px;
+      width: calc(25% - 10px);
+    }
+
+    &-tiny {
+      min-width: 140px;
+      width: calc(15% - 10px);
+    }
+
+    img {
+      width: 100%;
+    }
+
+    figcaption {
+      font-weight: bold;
+      margin: auto;
+      padding: 10px 0;
+    }
+  }
+
+  p {
+    padding: 0 10px;
+
+    >img {
+      vertical-align: middle;
+    }
+  }
+}
+
+.center {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  margin: 10px -10px;
+}
+
+
+.col-2 {
+  margin: 0 10px;
+  max-width: calc(100% / 6 - 20px);
+}
+
+.col-4 {
+  margin: 0 10px;
+  max-width: calc(100% / 3 - 20px);
+}
+
+.col-6 {
+  margin: 0 10px;
+  max-width: calc(100% / 2 - 20px);
+}
+
+
+
+.clearfix::after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+.sidebar-left {
+  border-right: 1px solid $color-black;
+  height: 100%; // Full-height: remove this if you want "auto" height
+  left: 0;
+  overflow-x: hidden; // Disable horizontal scroll
+  padding-left: 10px;
+  padding-top: 20px;
+  position: fixed; //Fixed Sidebar (stay in place on scroll)
+  top: 0; // Stay at the top
+  width: 250px; // Set the width of the sidebar
+  z-index: 1; // Stay on top
+}
